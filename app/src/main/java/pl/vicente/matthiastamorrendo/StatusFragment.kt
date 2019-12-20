@@ -5,28 +5,28 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.onNavDestinationSelected
 
-/**
- * A simple [Fragment] subclass.
- */
 class StatusFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         setHasOptionsMenu(true)
+        //NavigationUI.setupWithNavController(toolba, NavHostFragment.findNavController(nav_host))
         return inflater.inflate(R.layout.fragment_status, container, false)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.main_menu, menu)
+        return inflater.inflate(R.menu.main_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item!!, view!!.findNavController()) || super.onOptionsItemSelected(item)
+        return item.onNavDestinationSelected(findNavController()) || super.onOptionsItemSelected(item)
     }
 }
