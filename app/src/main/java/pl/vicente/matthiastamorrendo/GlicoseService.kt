@@ -1,8 +1,9 @@
 package pl.vicente.matthiastamorrendo
 
+import retrofit2.Call
 import retrofit2.http.GET
 
 interface GlicoseService {
-    @GET("matthias_history.php")
-    fun list()
+    @GET("list.php")
+    fun list() : Call<List<GlicoseEntry>>
 }
