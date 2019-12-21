@@ -5,20 +5,49 @@
     android:layout_height="match_parent"
     tools:context=".StatusFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/statusText"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:lineSpacingExtra="8sp"
-        android:text="NO HE IS NOT"
-        android:textAlignment="center"
-        android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:visibility="visible"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:id="@+id/matthiasStatus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            tools:visibility="visible"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="8sp"
+                android:text="NO HE IS NOT"
+                android:textAlignment="center"
+                android:textSize="40sp"
+                android:textAllCaps="true"/>
+
+            <TextView
+                android:id="@+id/glicoseText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="glicose"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/dateText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="data"
+                android:textAlignment="center" />
+        </LinearLayout>
+
 
 </FrameLayout>

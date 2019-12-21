@@ -1,14 +1,12 @@
 package pl.vicente.matthiastamorrendo
 
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.onNavDestinationSelected
 import kotlinx.android.synthetic.main.fragment_status.*
 import retrofit2.Call
@@ -29,7 +27,12 @@ class StatusFragment : Fragment() {
                                     response: Response<List<GlicoseEntry>?>?) {
                 response?.body()?.let {
                     val glicoses: List<GlicoseEntry> = it
-                    statusText.text = glicoses.last().date
+                    val currentGlicose = glicoses.last()
+                    glicoseText.text = currentGlicose.value.toString()+" mg/dL"
+                    dateText.text = "Atualizado em " + currentGlicose.date
+                    setStatus(currentGlicose.value)
+                    matthiasStatus.visibility = View.VISIBLE
+                    progressBar.visibility = View.GONE
                 }
             }
 
@@ -54,5 +57,18 @@ class StatusFragment : Fragment() {
 
     private fun glicoses(): List<GlicoseEntry> {
         return listOf(GlicoseEntry("2019-01-01", 200), GlicoseEntry("2019-01-02", 250))
+    }
+
+    private fun setStatus(value: Int) {
+        if (value > 100) {
+            statusText.text =  "tá com hiperglicemia"
+            statusText.setTextColor(Color.RED)
+        } else if (value < 70) {
+            statusText.text =  "tá com hipoglicemia"
+            statusText.setTextColor(Color.RED)
+        } else {
+            statusText.setTextColor(Color.BLACK)
+            statusText.text = "Tá tudo bem!"
+        }
     }
 }

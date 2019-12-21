@@ -3,15 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutFragment">
+    tools:context=".AboutFragment"
+    android:background="@color/colorPrimary"
+    >
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/muitoFeraText"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/muito_fera"
         android:textAlignment="center"
         android:textSize="100sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"/>
 
 </FrameLayout>
