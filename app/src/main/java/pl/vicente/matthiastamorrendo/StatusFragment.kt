@@ -60,10 +60,10 @@ class StatusFragment : Fragment() {
     }
 
     private fun setStatus(value: Int) {
-        if (value > 100) {
+        if (value > 120) {
             statusText.text =  "tá com hiperglicemia"
             statusText.setTextColor(Color.RED)
-        } else if (value < 70) {
+        } else if (value < 80) {
             statusText.text =  "tá com hipoglicemia"
             statusText.setTextColor(Color.RED)
         } else {
