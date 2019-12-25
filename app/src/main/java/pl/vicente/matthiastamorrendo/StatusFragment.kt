@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
@@ -38,10 +39,10 @@ class StatusFragment : Fragment() {
 
             override fun onFailure(call: Call<List<GlicoseEntry>?>?,
                                    t: Throwable?) {
-                Log.e("WAT", t?.message)
+                progressBar.visibility = View.GONE
+                Toast.makeText(context, "Sem conexão com a internet.", Toast.LENGTH_LONG).show()
             }
         })
-
 
         return inflater.inflate(R.layout.fragment_status, container, false)
     }
